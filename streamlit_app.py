@@ -28,7 +28,8 @@ page_names_to_funcs = {
 
 def check_password():
     """Returns `True` if the user had a correct password."""
-    
+    image = Image.open('comp.gif')
+    st.image(image)
     def password_entered():
         """Checks whether a password entered by the user is correct."""
         if (
@@ -41,8 +42,7 @@ def check_password():
             del st.session_state["username"]
         else:
             st.session_state["password_correct"] = False
-            image = Image.open('comp.gif')
-            st.image(image)
+            
     if "password_correct" not in st.session_state:
         # First run, show inputs for username + password.
         st.text_input("Username", on_change=password_entered, key="username")
