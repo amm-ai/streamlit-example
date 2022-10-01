@@ -28,8 +28,7 @@ page_names_to_funcs = {
 
 def check_password():
     """Returns `True` if the user had a correct password."""
-    image = Image.open('comp.gif')
-    st.image(image)
+    
     def password_entered():
         """Checks whether a password entered by the user is correct."""
         if (
@@ -64,7 +63,8 @@ def check_password():
         return True
 
 if check_password():
-    
+    image = Image.open('comp.gif')
+    st.image(image)
     selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
     page_names_to_funcs[selected_page]()
 
