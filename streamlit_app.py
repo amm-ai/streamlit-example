@@ -36,7 +36,7 @@ def check_password():
 
     st.markdown(
         f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-        unsafe_allow_html=True,
+        unsafe_allow_html=True,)
    
     def password_entered():
         """Checks whether a password entered by the user is correct."""
