@@ -41,7 +41,8 @@ def check_password():
             del st.session_state["username"]
         else:
             st.session_state["password_correct"] = False
-
+            image = Image.open('comp.gif')
+            st.image(image)
     if "password_correct" not in st.session_state:
         # First run, show inputs for username + password.
         st.text_input("Username", on_change=password_entered, key="username")
@@ -63,8 +64,7 @@ def check_password():
         return True
 
 if check_password():
-    image = Image.open('comp.gif')
-    st.image(image)
+    
     selected_page = st.sidebar.selectbox("Select a page", page_names_to_funcs.keys())
     page_names_to_funcs[selected_page]()
 
