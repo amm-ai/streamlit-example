@@ -12,7 +12,7 @@ def main_page():
 
 def page2():
     st.markdown("# Page 2 ❄️")
-    st.sidebar.markdown("# Page 2 ❄️")
+    st.sidebar.markdown("Data entry ❄️")
     # Data to be written to Deta Base
     with st.form("form"):
         name = st.text_input("Your name")
@@ -41,13 +41,13 @@ def page2():
     st.write(db_content)
 
 def page3():
-    st.markdown("# Page 3 🎉")
-    st.sidebar.markdown("# Page 3 🎉")
+    st.markdown("About 🎉")
+    st.sidebar.markdown("ABout 🎉")
 
 page_names_to_funcs = {
     "Main Page": main_page,
-    "Page 2": page2,
-    "Page 3": page3,
+    "Data entry": page2,
+    "About": page3,
 }
 
 
