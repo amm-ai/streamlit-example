@@ -13,20 +13,22 @@ def main_page():
 def page2():
     st.markdown("# Page 2 ❄️")
     st.sidebar.markdown("Data entry ❄️")
+    
+    d = st.date_input("Today's date",None, None, None, None)
     # Data to be written to Deta Base
     with st.form("form"):
         name = st.text_input("Your name")
         st.write('You selected:', name)
         age = st.number_input("Your age")
         submitted = st.form_submit_button("Store in database")
-    d = st.date_input("Today's date",None, None, None, None)
+    
 
     # Connect to Deta Base with your Project Key
     deta = Deta(st.secrets["deta_key"])
 
     # Create a new database "example-db"
     # If you need a new database, just use another name.
-    db = deta.Base("example-db")
+    db = deta.Base("example-dbb")
 
     # If the user clicked the submit button,
     # write the data from the form to the database.
