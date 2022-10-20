@@ -16,9 +16,10 @@ def page2():
     # Data to be written to Deta Base
     with st.form("form"):
         name = st.text_input("Your name")
+        st.write('You selected:', name)
         age = st.number_input("Your age")
         submitted = st.form_submit_button("Store in database")
-
+    d = st.date_input("Today's date",None, None, None, None)
 
     # Connect to Deta Base with your Project Key
     deta = Deta(st.secrets["deta_key"])
@@ -31,7 +32,7 @@ def page2():
     # write the data from the form to the database.
     # You can store any data you want here. Just modify that dictionary below (the entries between the {}).
     if submitted:
-        db.put({"name": name, "age": age})
+        db.put({"date": d, "name": name, "age": age})
 
     "---"
     "Here's everything stored in the database:"
