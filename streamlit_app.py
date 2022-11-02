@@ -26,3 +26,11 @@ rows = run_query("SELECT * from CHICKEN_TABLE;")
 # Print results.
 st.write(rows)
 
+# Data to be written to Deta Base
+with st.form("form", clear_on_submit=True):
+    NAME = st.text_input("Your name")
+    CHICKEN = st.text_input("Are you a chicken?")
+    submitted = st.form_submit_button("Store in database")
+  
+if submitted:
+    run_query("INSERT INTO CHICKEN_TABLE VALUES ("NAME": NAME, "CHICKEN": CHICKEN})
