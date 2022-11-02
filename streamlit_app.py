@@ -31,7 +31,7 @@ with st.form("form", clear_on_submit=True):
     record = (n,c)
   
 if submitted:
-    QUERY = "INSERT INTO CHICKEN_TABLE (n,c) VALUES (%s,%s);"
+    QUERY = """INSERT INTO CHICKEN_TABLE (n,c) VALUES (%s,%s);"""
     run_query(QUERY,record)
     data = run_query("SELECT * from CHICKEN_TABLE;")
     # Print results.
