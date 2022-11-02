@@ -28,11 +28,11 @@ with st.form("form", clear_on_submit=True):
     n = st.text_input("Your name")
     c = st.text_input("Are you a chicken?")
     submitted = st.form_submit_button("Store in database")
-    st.write(n)
-    st.write(c)
+    record = (n,c)
   
 if submitted:
-    run_query("INSERT INTO CHICKEN_TABLE VALUES ('(n)','(c)');")
+    QUERY = "INSERT INTO CHICKEN_TABLE (n,c) VALUES (%s,%s);"
+    run_query(QUERY,record)
     data = run_query("SELECT * from CHICKEN_TABLE;")
     # Print results.
     st.write(data)
