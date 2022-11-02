@@ -30,7 +30,7 @@ with st.form("form", clear_on_submit=True):
     submitted = st.form_submit_button("Store in database")
   
 if submitted:
-    run_query("INSERT INTO CHICKEN_TABLE VALUES ('{'n'}','{'c'}');")
+    run_query("INSERT INTO CHICKEN_TABLE VALUES ((n),(c));")
     data = run_query("SELECT * from CHICKEN_TABLE;")
     # Print results.
     st.write(data)
