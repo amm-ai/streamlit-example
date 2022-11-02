@@ -21,7 +21,7 @@ def run_query(n,c):
     insert_query = """INSERT INTO CHICKEN_TABLE (NAME, CHICKEN) VALUES (%s,%s); """
     with conn.cursor() as cur:
         cur.execute(insert_query,user_input)
-        cur.commit()
+        
         st.write("Record inserted successfully into Laptop table")
         return cur.fetchall()
 
