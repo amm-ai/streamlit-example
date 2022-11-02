@@ -18,7 +18,7 @@ conn = init_connection()
 @st.experimental_memo(ttl=600)
 def run_query(n,c):
     user_input=(n,c)
-    insert_query = """INSERT INTO CHICKEN_TABLE (n,c) VALUES (%s,%s); """
+    insert_query = """INSERT INTO CHICKEN_TABLE (NAME, CHICKEN) VALUES (%s,%s); """
     with conn.cursor() as cur:
         cur.execute(insert_query,user_input)
         cur.commit()
