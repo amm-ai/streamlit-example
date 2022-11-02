@@ -21,7 +21,7 @@ def run_query(n,c):
     insert_query = """INSERT INTO CHICKEN_TABLE (n,c) 
                                 VALUES (%s,%s) """
     with conn.cursor() as cur:
-        cur.execute(inser_query,user_input)
+        cur.execute(insert_query,user_input)
         return cur.fetchall()
 
 
