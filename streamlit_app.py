@@ -16,13 +16,21 @@ conn = init_connection()
 # Perform query.
 # Uses st.experimental_memo to only rerun when the query changes or after 10 min.
 @st.experimental_memo(ttl=600)
-def run_query(n,c):
+def insert_data(n,c):
     user_input=(n,c)
     insert_query = """INSERT INTO CHICKEN_TABLE (NAME, CHICKEN) VALUES (%s,%s); """
     with conn.cursor() as cur:
         cur.execute(insert_query,user_input)
         
-        st.write("Record inserted successfully into Laptop table")
+        st.write("Record inserted successfully into CHICKEN_TABLE")
+        return cur.fetchall()
+
+# Perform query.
+# Uses st.experimental_memo to only rerun when the query changes or after 10 min.
+@st.experimental_memo(ttl=600)
+def run_query(query):
+    with conn.cursor() as cur:
+        cur.execute(query)
         return cur.fetchall()
 
 
@@ -36,7 +44,7 @@ with st.form("form", clear_on_submit=True):
   
 if submitted:
     
-    run_query(n,c)
+    insert_data(n,c)
     data = run_query("SELECT * from CHICKEN_TABLE;")
     # Print results.
     st.write(data)
