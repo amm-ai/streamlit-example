@@ -18,7 +18,7 @@ conn = init_connection()
 @st.experimental_memo(ttl=600)
 def run_query(query,record):
     with conn.cursor() as cur:
-        cur.execute(query)
+        cur.execute(query,record)
         return cur.fetchall()
 
 
