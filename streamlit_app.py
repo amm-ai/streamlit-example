@@ -21,10 +21,10 @@ def run_query(query):
         cur.execute(query)
         return cur.fetchall()
 
-rows = run_query("SELECT * from CHICKEN_TABLE;")
+data = run_query("SELECT * from CHICKEN_TABLE;")
 
 # Print results.
-st.write(rows)
+st.write(data)
 
 # Data to be written to Deta Base
 with st.form("form", clear_on_submit=True):
@@ -34,3 +34,8 @@ with st.form("form", clear_on_submit=True):
   
 if submitted:
     run_query("INSERT INTO CHICKEN_TABLE VALUES ('n','c');")
+
+dataUpdated = run_query("SELECT * from CHICKEN_TABLE;")
+
+# Print results.
+st.write(dataUpdated)
