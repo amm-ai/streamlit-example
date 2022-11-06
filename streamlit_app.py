@@ -34,7 +34,7 @@ def run_query(query):
         return cur.fetchall()
 
 
-
+st.header("Chicken form")
 # Data to be written to Database
 with st.form("form", clear_on_submit=True):
     n = st.text_input("Your name")
